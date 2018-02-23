@@ -1,0 +1,20 @@
+{
+  "name": "ideas_board",
+  "version": "1.0.0",
+  "description": "**The IDEAS board**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon.index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlenaKashuba/ideas-board.git"
+  },
+  "author": "Olena Kashuba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlenaKashuba/ideas-board/issues"
+  },
+  "homepage": "https://github.com/OlenaKashuba/ideas-board#readme"
+}
