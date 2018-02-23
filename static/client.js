@@ -1,14 +1,20 @@
 function displayIdeas(ideas) {
-	const ideasContainer = document.querySelector('.ideas-container');
+	const ideasContainer = document.querySelector('.examples-container');
 	const ideasList = document.createElement('ol');
 	ideas.forEach(function(idea) {
 		const ideasListItem = document.createElement('li');
 		ideasListItem.innerHTML = `
-			<p>${idea.title}</p>
+			<span>${idea.title}<span>
+			<button class="add-button"> Add </button>
 		`;
 		ideasList.appendChild(ideasListItem);
+
 	});
 	ideasContainer.appendChild(ideasList);
+	const addButton = document.querySelector('.add-button');
+	addButton.addEventListener('click', function(event) {
+ 		debugger;
+	});
 };
 
 fetch('/api/ideas')
@@ -19,3 +25,4 @@ fetch('/api/ideas')
 	.catch(function(error) {
 		return error;
 	})
+
