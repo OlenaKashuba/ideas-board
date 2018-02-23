@@ -5,10 +5,16 @@ const exphbs = require('express-handlebars');
 const pgp = require('pg-promise')();
 const app = express();
 
-app.set('view engine', 'hbs');
+app.engine(
+  'hbs',
+  exphbs({
+    extname: 'hbs'
+  })
+);
 
-app.use(bodyParser.json());
+app.set('view engine', 'hbs');
 app.use(express.static('static'));
+app.use(bodyParser.json());
 
 const db = pgp({
 	host: 'localhost',
