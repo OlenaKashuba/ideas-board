@@ -29,12 +29,14 @@ app.get('/', (req,res) => {
 app.get('/api/ideas', (req,res) => {
 	db.any('SELECT * FROM ideas')
 	.then((data) => {
-		res.json(data);
+		return res.json(data);
 	})
 	.catch((error) => {
 		res.status(404).end();
 	})
-})
+});
+
+
 
 
 
