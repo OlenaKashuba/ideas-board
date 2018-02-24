@@ -1,7 +1,62 @@
+body {
+	background-color: rgba(119,190,194,0.4);
+}
+
+.main-header {
+	display: flex;
+	justify-content: center;
+}
+.introduction-description {
+	display: flex;
+	justify-content: center;
+}
 .flex-wrapper {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-evenly;
 }
+
+.choose-block {
+	width: 40%;
+	border: 1px solid black;
+	background-color: #ffffff;
+}
+
+.input-ideas {
+	width: 80%;
+	margin: 0 auto;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+.input-ideas-title {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.list-of-selected {
+	border: 1px solid black;
+	width: 40%;
+	background-color: #ffffff;
+}
+
+.list-of-selected .selected-title {
+	padding: 0;
+	margin: 0 auto;
+	display: block;
+	width: 50%;
+	text-align: center;
+}
+
+.list-of-selected .create-board-button {
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+
+}
+
+
+
 
 .my-comments {
 	color: #b09f9f;
