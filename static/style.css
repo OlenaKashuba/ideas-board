@@ -1,43 +1,71 @@
+html,
 body {
-	background-color: rgba(119,190,194,0.4);
+	min-width: 320px;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 1.5;
+	background-color: rgb(155,194,194);
 }
 
 .main-header {
 	display: flex;
 	justify-content: center;
+	background-color: rgb(207,228,228);
+	text-align: center;
 }
+
 .introduction-description {
 	display: flex;
 	justify-content: center;
-}
-.flex-wrapper {
-	display: flex;
-	justify-content: space-evenly;
+	text-align: center;
 }
 
+.flex-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
 .choose-block {
-	width: 40%;
-	border: 1px solid black;
+	margin-bottom: 20px;
+}
+
+.choose-block,
+.list-of-selected {
+	width: 80%;
+	padding: 0;
 	background-color: #ffffff;
+	box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.4);
+	border-radius: 5px;
 }
 
 .input-ideas {
-	width: 80%;
-	margin: 0 auto;
-	border: 1px solid gray;
+	padding: 10px;
+	background-color: rgb(255,204,204);
 	text-align: center;
+	border-radius: 5px;
 }
 
 .input-ideas-title {
 	display: block;
 	margin: 0 auto;
 	text-align: center;
+	font-weight: bold;
+}
+
+.examples-title {
+	text-align: center;
+}
+
+.add-button {
+	background-color: #ffeecc;
+	font-size: 16px;
+	border-radius: 5px;
+
 }
 
 .list-of-selected {
-	border: 1px solid black;
-	width: 40%;
-	background-color: #ffffff;
+	padding: 20px 10px;
 }
 
 .list-of-selected .selected-title {
@@ -46,18 +74,99 @@ body {
 	display: block;
 	width: 50%;
 	text-align: center;
+
 }
 
 .list-of-selected .create-board-button {
 	display: block;
 	margin: 0 auto;
-	width: 50%;
-
+	padding: 15px 10px;
+	width: 60%;
+	font-size: 16px;
+	letter-spacing: 1.2px;
+	color: #ffffff;
+	background-color: rgba(21,113,113,0.8);
+	border: none;
+	border-radius: 5px;
 }
+
+.board-page-title {
+	text-align: center;
+}
+
+.cards-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 20px 20px 20px;
+	margin-bottom: 20px;
+	background-color: #ffffff;
+	box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.4);
+	border-radius: 10px;
+}
+
+.card-title {
+	text-align: center;
+	text-shadow: 3px 0px 24px rgba(216, 110, 110, 1);
+}
+
+.card img {
+	margin: 0 auto;
+}
+
+
+
+
 
 
 
 
 .my-comments {
 	color: #b09f9f;
+}
+
+@media screen and (min-width: 420px) {
+	.choose-block,
+	.list-of-selected {
+		width: 70%;
+	}
+
+	.card {
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (min-width: 520px) {
+	.choose-block,
+	.list-of-selected {
+		width: 60%;
+	}
+
+	.cards-container {
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+
+	.card {
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.flex-wrapper {
+		flex-direction: row;
+	}
+
+	.choose-block,
+	.list-of-selected {
+		width: 40%;
+		margin-bottom: 0;
+	}
 }

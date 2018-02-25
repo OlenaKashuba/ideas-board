@@ -26,6 +26,10 @@ app.get('/', (req,res) => {
 	res.render('index');
 });
 
+app.get('/ideas-board', (req,res) => {
+	res.render('board');
+});
+
 app.get('/api/ideas', (req,res) => {
 	db.any('SELECT * FROM ideas')
 	.then((data) => {
@@ -35,6 +39,8 @@ app.get('/api/ideas', (req,res) => {
 		res.status(404).end();
 	})
 });
+
+
 
 
 
