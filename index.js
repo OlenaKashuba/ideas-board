@@ -32,8 +32,6 @@ app.get('/ideas-board', (req,res) => {
 	res.render('board');
 });
 
-
-
 app.get('/api/ideas', (req,res) => {
 	db.any('SELECT * FROM example_ideas ORDER BY id')
 	.then((data) => {
@@ -44,10 +42,28 @@ app.get('/api/ideas', (req,res) => {
 	})
 });
 
-// app.post('/api/ideas', (req,res) => {
-// 	db.any('INSERT INTO board(title,pic_url) SELECT title,pic_url FROM example_idea WHERE title = 'req.title' returning idea_id'
-
-// })
+app.post('/api/ideas', (req,res) => {
+	const {id} = req.body;
+	console.log(req.body.id);
+	db.one('SELECT title,pic_url FROM example_ideas WHERE id = $1', [id])
+	.then(data => {
+		console.log(data);
+		return data
+	})
+	.then(function(data) {
+		return db.one('INSERT INTO board(title,pic_url) SELECT title,pic_url FROM example_ideas WHERE id = $1 RETURNING idea_id', [id]);
+	})
+	.then(data => {
+		res.json(Object.assign({}, {id:data.idea_id}, req.body));
+	})
+	.catch(error => {
+		res.status(404).json({
+			error:error.message
+		})
+	})
+	
+	// db.any(`INSERT INTO board(title,pic_url) SELECT title,pic_url FROM example_idea WHERE id = $1{} returning idea_id`);
+});
 
 app.post('/ideas-board', (req,res) => {
 	getImages(req.body.idea)
