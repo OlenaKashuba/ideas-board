@@ -15,9 +15,9 @@
 		<div class="flex-wrapper">
 			<div class="choose-block">
 				<section class="input-ideas">
-					<form>
+					<form method="POST" action="/ideas-board">
 						<legend class="input-ideas-title"> Type your idea here! </legend>		
-							<input type="text" name="idea-input">
+							<input type="text" name="idea">
 							<input type="submit" value="Add">
 
 					</form>
@@ -28,12 +28,12 @@
 			</div>
 			<section class="list-of-selected">
 				<h3 class="selected-title">Your List of Selected</h3>
-				<ul class="selected-idea">
+				<ul class="selected-ideas-list">
+			{{!-- 		<li class="my-comments">placeholder</li>
 					<li class="my-comments">placeholder</li>
-					<li class="my-comments">placeholder</li>
-					<li class="my-comments">placeholder</li>
+					<li class="my-comments">placeholder</li> --}}
 				</ul>
-				<button class="create-board-button">CREATE A BOARD</button>
+				<button class="create-board-button"><a href="/ideas-board">CREATE A BOARD</a></button>
 			</section>
 		<div>
 	</main>
