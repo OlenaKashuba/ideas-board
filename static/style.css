@@ -74,7 +74,10 @@ body {
 	display: block;
 	width: 50%;
 	text-align: center;
+}
 
+.list-of-selected .list-item {
+	font-style: italic;
 }
 
 .list-of-selected .create-board-button {

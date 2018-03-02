@@ -1,5 +1,3 @@
-const selectedIdeasArray= []
-
 function displayIdeas(ideas) {
 	const ideasContainer = document.querySelector('.examples-container');
 	const ideasList = document.createElement('ol');
@@ -27,9 +25,12 @@ function displayIdeas(ideas) {
 						'content-type': 'application/json'
 					}
 				}) 
-				.then (function()	{		
+				.then (function(response)	{		
+					return response.json();
+				})	
+				.then(function() {
 					button.disabled = 'true';
-				})
+				})		
 			});	
 		});
 };
@@ -51,6 +52,7 @@ function displayCards(cards) {
 			cardItem.innerHTML = `
 				<p>${item.title}</p>
 				<img width="150" height="150" src="${item.pic_url}">
+				<button class="delete-card-button" id="">Delete</button>
 			`;
 		cardsContainer.appendChild(cardItem);
 		});
@@ -59,14 +61,20 @@ function displayCards(cards) {
 
 function displayList(ideas) {
 	const listContainer = document.querySelector('.selected-ideas-list');
-	ideas.forEach(function(idea) {
-		const listItem = document.createElement('li');
-		listItem.setAttribute('class', 'list-item');
-		listItem.innerHTML =`
-			<p>${item.title}</p>
-		`;
-		console.log(listItem);
-		listContainer.appendChild(listItem);
+	fetch('/api/ideas-board')
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function() {
+		ideas.forEach(function(idea) {
+			const listItem = document.createElement('li');
+			listItem.setAttribute('class', 'list-item');
+			listItem.innerHTML =`
+				<p>${idea.title}</p>
+			`;
+			console.log(listItem);
+			listContainer.appendChild(listItem);
+		})
 		
 	});
 }
@@ -86,6 +94,17 @@ fetch('/api/ideas-board')
 		return response.json();
 	})
 	.then(displayCards)
+	.catch(function(error) {
+		return error;
+	})
+
+fetch('/api/ideas-board')
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(data) {
+		displayList(data)
+	})
 	.catch(function(error) {
 		return error;
 	})
